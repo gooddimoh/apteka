@@ -1,12 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdatePasswordRequest;
-use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Gate;
 
 class ChangePasswordController extends Controller
 {
@@ -24,3 +23,4 @@ class ChangePasswordController extends Controller
         return redirect()->route('profile.password.edit')->with('message', __('global.change_password_success'));
     }
 }
+

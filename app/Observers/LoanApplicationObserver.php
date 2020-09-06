@@ -11,8 +11,7 @@ use App\Role;
 use App\Status;
 use Illuminate\Support\Facades\Notification;
 
-class LoanApplicationObserver
-{
+class LoanApplicationObserver {
     /**
      * Handle the loan application "creating" event.
      *

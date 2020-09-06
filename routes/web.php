@@ -1,17 +1,48 @@
 <?php
+
+
+Auth::routes(["auth", true]);
+
 Route::redirect('/', '/login');
+
 Route::get('/home', function () {
     if (session('status')) {
-        return redirect()->route('admin.pharmacy.index')->with('status', session('status'));
+        return redirect()->route('admin.loan-applications.index')->with('status', session('status'));
     }
-    return redirect()->route('admin.pharmacy.index');
+
+    return redirect()->route('admin.loan-applications.index');
 });
 
-Auth::routes();
-// Admin
+
+
+Route::get('permissions/index', 'PermissionsController@index')->name('index');
+Route::get('permissions/create', 'PermissionsController@create')->name('create');
+Route::get('permissions/store', 'PermissionsController@store')->name('store');
+Route::get('permissions/edit', 'PermissionsController@edit')->name('edit');
+Route::get('permissions/update', 'PermissionsController@update')->name('update');
+Route::get('permissions/show', 'PermissionsController@show')->name('show');
+Route::get('permissions/destroy', 'PermissionsController@destroy')->name('destroy');
+Route::get('permissions/massDestroy', 'PermissionsController@massDestroy')->name('massDestroy');
+
+
+Route::get('/admin/index', 'PharmacyController@index')->name('index');
+
+
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
+
+    Route::get('/admin/index', 'PharmacyController@index')->name('index');
+
+    Route::get('permissions/index', 'PermissionsController@index')->name('index');
+    Route::get('permissions/create', 'PermissionsController@create')->name('create');
+    Route::get('permissions/store', 'PermissionsController@store')->name('store');
+    Route::get('permissions/edit', 'PermissionsController@edit')->name('edit');
+    Route::get('permissions/update', 'PermissionsController@update')->name('update');
+    Route::get('permissions/show', 'PermissionsController@show')->name('show');
+    Route::get('permissions/destroy', 'PermissionsController@destroy')->name('destroy');
+    Route::get('permissions/massDestroy', 'PermissionsController@massDestroy')->name('massDestroy');
+
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');
@@ -29,12 +60,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::resource('statuses', 'StatusesController');
 
     // Loan Applications
-    Route::delete('pharmacy/destroy', 'PharmacyController@massDestroy')->name('pharmacy.massDestroy');
-    Route::get('pharmacy/{loan_application}/analyze', 'PharmacyController@showAnalyze')->name('pharmacy.showAnalyze');
-    Route::post('pharmacy/{loan_application}/analyze', 'PharmacyController@analyze')->name('pharmacy.analyze');
-    Route::get('pharmacy/{loan_application}/send', 'PharmacyController@showSend')->name('pharmacy.showSend');
-    Route::post('pharmacy/{loan_application}/send', 'PharmacyController@send')->name('pharmacy.send');
-    Route::resource('pharmacy', 'PharmacyController');
+    Route::delete('loan-applications/destroy', 'LoanApplicationsController@massDestroy')->name('loan-applications.massDestroy');
+    Route::get('loan-applications/{loan_application}/analyze', 'LoanApplicationsController@showAnalyze')->name('loan-applications.showAnalyze');
+    Route::post('loan-applications/{loan_application}/analyze', 'LoanApplicationsController@analyze')->name('loan-applications.analyze');
+    Route::get('loan-applications/{loan_application}/send', 'LoanApplicationsController@showSend')->name('loan-applications.showSend');
+    Route::post('loan-applications/{loan_application}/send', 'LoanApplicationsController@send')->name('loan-applications.send');
+    Route::resource('loan-applications', 'LoanApplicationsController');
 
     // Comments
     Route::delete('comments/destroy', 'CommentsController@massDestroy')->name('comments.massDestroy');
@@ -47,3 +78,4 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
         Route::post('password', 'ChangePasswordController@update')->name('password.update');
     }
 });
+

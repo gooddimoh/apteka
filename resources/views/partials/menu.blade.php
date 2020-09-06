@@ -4,7 +4,6 @@
             {{ trans('panel.site_title') }}
         </a>
     </div>
-
     <ul class="c-sidebar-nav">
         @can('user_management_access')
             <li class="c-sidebar-nav-dropdown">
@@ -26,6 +25,52 @@
                             </a>
                         </li>
                     @endcan
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.permissions.index") }}"
+                           class="c-sidebar-nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.permission.title') }}
+                        </a>
+                    </li>
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.permissions.index") }}"
+                           class="c-sidebar-nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.permission.title') }}
+                        </a>
+                    </li>
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.permissions.index") }}"
+                           class="c-sidebar-nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.permission.title') }}
+                        </a>
+                    </li>
+
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.permissions.index") }}"
+                           class="c-sidebar-nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.permission.title') }}
+                        </a>
+                    </li>
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.permissions.index") }}"
+                           class="c-sidebar-nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.permission.title') }}
+                        </a>
+                    </li>
                     @can('role_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.roles.index") }}"
@@ -62,7 +107,7 @@
                 </a>
             </li>
         @endcan
-        @can('loan_application_access')
+        @can('pharmacy_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.pharmacy.index") }}"
                    class="c-sidebar-nav-link {{ request()->is('admin/pharmacy') || request()->is('admin/pharmacy/*') ? 'active' : '' }}">
@@ -95,11 +140,59 @@
             @endcan
         @endif
         <li class="c-sidebar-nav-item">
-            <a href="#" class="c-sidebar-nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+            <a href="#" class="c-sidebar-nav-link"
+               onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">
 
                 </i>
                 {{ trans('global.logout') }}
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.permissions.index") }}"
+               class="c-sidebar-nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+                </i>
+                nav link 1
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.permissions.index") }}"
+               class="c-sidebar-nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+                </i>
+                nav link 1
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.permissions.index") }}"
+               class="c-sidebar-nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+                </i>
+                nav link 1
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.permissions.index") }}"
+               class="c-sidebar-nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+                </i>
+                nav link 1
+            </a>
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.permissions.index") }}"
+               class="c-sidebar-nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+                </i>
+                nav link 1
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a href="{{ route("admin.permissions.index") }}"
+               class="c-sidebar-nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
+                <i class="fa-fw fas fa-unlock-alt c-sidebar-nav-icon">
+                </i>
+                nav link 1
             </a>
         </li>
     </ul>
@@ -108,12 +201,14 @@
     div#sidebar {
         background: #00C8DF;
     }
+
     .c-sidebar .c-sidebar-nav-dropdown-toggle:hover, .c-sidebar .c-sidebar-nav-link:hover {
         color: #000;
         background: #fff;
         border-radius: 20px 0 0 20px;
         margin-left: 20px;
     }
+
     .c-sidebar .c-sidebar-nav-dropdown-toggle, .c-sidebar .c-sidebar-nav-link {
         color: rgba(255, 255, 255, .8);
         background: 0 0;

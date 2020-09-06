@@ -1,12 +1,9 @@
 @extends('layouts.app')
 @section('content')
-
 <div class="row justify-content-center">
     <div class="col-md-6">
-
         <div class="card mx-4">
             <div class="card-body p-4">
-
                 <form method="POST" action="{{ route('register') }}">
                     {{ csrf_field() }}
                     <h1>{{ trans('panel.site_title') }}</h1>
@@ -67,7 +64,6 @@
                         {{ trans('global.register') }}
                     </button>
                 </form>
-
             </div>
         </div>
 

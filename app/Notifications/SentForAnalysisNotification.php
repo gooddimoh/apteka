@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Notifications;
 
 use App\LoanApplication;
@@ -8,8 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class SentForAnalysisNotification extends Notification
-{
+class SentForAnalysisNotification extends Notification {
     use Queueable;
 
     /**

@@ -15,13 +15,16 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CommentsController extends Controller
 {
-    public function index()
+    public function index(Request $request, Response $response)
     {
         abort_if(Gate::denies('comment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $comments = Comment::all();
 
-        return view('admin.comments.index', compact('comments'));
+        var_dump($request);
+        return json_encode($response);
+
+//        return view('admin.comments.index', compact('comments'));
     }
 
     public function create()

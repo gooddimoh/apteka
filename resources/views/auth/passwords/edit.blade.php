@@ -5,7 +5,6 @@
     <div class="card-header">
         {{ trans('global.change_password') }}
     </div>
-
     <div class="card-body">
         <form method="POST" action="{{ route("profile.password.update") }}">
             @csrf
